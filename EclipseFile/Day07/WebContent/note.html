@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>九大隱式對象</h1>
+	<h3>不需要建立對象就可以使用虛擬名進行呼叫方法</h3>
+	<p>javax.servlet.jsp.PageContext pageContext:<br>
+		這個頁面的內容，也可以取其他八個隱式對象(自訂標籤)
+	</p>
+	<hr>
+	<p>javax.servlet.http.HttpSession session<br>
+		這是瀏覽器與服務器的一次會話(HttpSession 對象)
+	</p>
+	<hr>
+	<p>javax.servlet.ServletContext application<br>
+		代表這個專案 (ServletContext)，取的初始化參數
+	</p>
+	<hr>
+	<p>javax.servlet.ServletConfig config<br>
+		當前的jsp頁面，如servletConfig(開發非常少用)
+	</p>
+	<hr>
+	<p>javax.servlet.jsp.JspWriter out<br>
+		直接輸出於jsp頁面 %=相同 %>
+	</p>
+	<hr>	
+	<p>javax.servlet.http.HttpServletRequest request<br> </p>
+	<hr>
+	<p>javax.servlet.http.HttpServletResponse response<br></p>
+	<hr>
+	<p>java.lang.Object page = this<br></p>
+	<hr>
+	<p>java.util.Exception e <br>
+		須加上 isErrorPage="true"方可以使用
+	</p>
+	
+	作用大小
+		pageContent(小)
+		request
+		session
+		application(大)
+		
+	轉發 request.getRequestDispatcher("WEB-INF/index.jsp").forward(request, response);
+	
+	重定向 response.sendRedirect("http://www.yahoo.com.tw");
+	
+	errorPage: 可以加在web.xml or index 上面的 errorPage Redirect
+	<!-- <error-page>
+		  	<error-code>500</error-code>
+		  	<location>/WEB-INF/xxx.jsp</location>
+		 </error-page> -->
+		 
+		 
+  	<!-- <%@ page errorPage="WEB-INF/xxx.jsp" %> -->
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+  		
+	
+</body>
+</html>
